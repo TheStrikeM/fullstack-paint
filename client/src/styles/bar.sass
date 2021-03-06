@@ -1,6 +1,6 @@
 @import 'variables'
 
-.bar
+.tool-bar
   height: $toolbar-height
   background: aliceblue
   display: flex
@@ -8,3 +8,23 @@
   position: absolute
   width: 100%
   box-shadow: 0 4px 5px gray
+  z-index: 2
+  &__btn
+    height: 25px
+    width: 25px
+    border: none
+    cursor: pointer
+
+  .brush
+    background:
+
+
+.setting-bar
+  height: $toolbar-height
+  background: aliceblue
+  display: flex
+  align-items: center
+  position: absolute
+  width: 100%
+  box-shadow: 0 4px 5px gray
+  top: $toolbar-height

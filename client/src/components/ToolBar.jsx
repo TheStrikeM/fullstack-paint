@@ -3,8 +3,8 @@ import '../styles/bar.sass'
 
 const ToolBar = () => {
     return (
-        <div className={"bar"}>
-            ToolBar
+        <div className={"tool-bar"}>
+            <button className={"tool-bar__btn brush"} />
         </div>
     );
 };
