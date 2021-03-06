@@ -3,7 +3,7 @@ import '../styles/bar.sass'
 
 const SettingsBar = () => {
     return (
-        <div className={"bar"}>
+        <div className={"bar"} style={{top: 40}}>
             SettingsBar
         </div>
     );
