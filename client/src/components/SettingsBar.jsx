@@ -1,8 +1,9 @@
 import React from 'react';
+import '../styles/bar.sass'
 
 const SettingsBar = () => {
     return (
-        <div>
+        <div className={"bar"}>
             SettingsBar
         </div>
     );
