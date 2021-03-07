@@ -16,7 +16,13 @@ const SettingsBar = () => {
                 max={50}
             />
 
-
+            <label htmlFor="stroke-color">Цвет обводки: </label>
+            <input
+                onChange={e => toolState.setStrokeColor(e.target.value)}
+                style={{margin: '0 10px'}}
+                id={"stroke-color"}
+                type="color"
+            />
         </div>
     );
 };
