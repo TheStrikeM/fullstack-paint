@@ -21,6 +21,8 @@ const Canvas = observer(() => {
     React.useEffect(() => {
         if(canvasState.username) {
             const socket = new WebSocket('ws://localhost:5000/')
+            canvasState.setSocket(socket)
+            canvasState.setSessionId(params.id)
             socket.onopen = () => {
                 console.log("Соединение установлено.")
                 socket.send(JSON.stringify({
@@ -30,10 +32,23 @@ const Canvas = observer(() => {
                 }))
             }
             socket.onmessage = (event) => {
-                console.log(event.data)
+                const msg = JSON.parse(event.data)
+                switch (msg.method) {
+                    case "connection":
+                        console.log(`Пользователь ${msg.username} успешно подключен к вашей комнате`);
+                        break
+
+                    case "draw":
+                        drawHandler(msg)
+                        break
+                }
             }
         }
     }, [canvasState.username])
+
+    const drawHandler = (msg) => {
+
+    }
 
     const onMouseDownHandler = () => {
         canvasState.pushToUndo(canvasRef.current.toDataURL())
