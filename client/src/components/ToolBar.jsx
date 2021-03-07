@@ -6,6 +6,7 @@ import Brush from "../tools/Brush";
 import Rect from "../tools/Rect";
 import Circle from "../tools/Circle";
 import Eraser from "../tools/Eraser";
+import Line from "../tools/Line";
 
 const ToolBar = () => {
     return (
@@ -27,6 +28,7 @@ const ToolBar = () => {
 
             <button
                 className={"tool-bar__btn line"}
+                onClick={() => toolState.setTool(new Line(canvasState.canvas))}
             />
 
             <button
