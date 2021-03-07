@@ -4,6 +4,7 @@ import {observer} from "mobx-react-lite";
 import canvasState from "../store/canvasState";
 import toolState from "../store/toolState";
 import Brush from "../tools/Brush";
+import {Modal, Button} from 'react-bootstrap'
 
 const Canvas = observer(() => {
     const canvasRef = React.useRef(null)
@@ -19,8 +20,20 @@ const Canvas = observer(() => {
     
     return (
         <div className={"canvas"}>
-            <canvas onMouseDown={() => onMouseDownHandler()} ref={canvasRef} width={800} height={600}>
+            <Modal.Dialog show={true} onHide={() => {}}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Введите ваше имя</Modal.Title>
+                </Modal.Header>
 
+                <Modal.Body>
+                    <input type="text" placeholder={"Ваше имя"}/>
+                </Modal.Body>
+
+                <Modal.Footer>
+                    <Button variant="secondary">Войти</Button>
+                </Modal.Footer>
+            </Modal.Dialog>
+            <canvas onMouseDown={() => onMouseDownHandler()} ref={canvasRef} width={800} height={600}>
             </canvas>
         </div>
     );
